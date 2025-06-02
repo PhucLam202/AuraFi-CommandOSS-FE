@@ -1,3 +1,5 @@
+'use client';
+
 import { useCurrentAccount, useConnectWallet, useDisconnectWallet, useSignPersonalMessage } from '@mysten/dapp-kit';
 import { useWalletAdapter } from '../lib/WalletAdapter';
 import { useCallback, useState } from 'react';

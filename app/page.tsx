@@ -2,7 +2,6 @@
 
 import TopBar from "../components/layouts/Topbar";
 import MobileNavigation from "../components/layouts/MobileNavigation";
-import ChatInterface from "../components/ChatBotInterface";
 import { Chat } from "@/components/ui/chat";
 const Chatbot = () => {
   return (
@@ -17,7 +16,6 @@ const Chatbot = () => {
           <div className="p-4 sm:p-6 md:p-8">
             <div className="grid grid-cols-1 lg:grid-cols-1 gap-8">
               <div className="lg:col-span-2">
-                {/* <ChatInterface /> */}
                 <Chat />
               </div>
             </div>
