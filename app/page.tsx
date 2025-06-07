@@ -1,31 +1,17 @@
-'use client'
+import HeroSection from "@/components/HeroSection";
+import FeaturesSection from "@/components/FeaturesSection";
+import FAQSection from "@/components/FAQSection";
+import ContactSection from "@/components/Contract";
+import Banner  from "@/components/ui/banner";
 
-import TopBar from "../components/layouts/Topbar";
-import MobileNavigation from "../components/layouts/MobileNavigation";
-import { Chat } from "@/components/ui/chat";
-const Chatbot = () => {
+export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen lg:flex-row">
-      {/* Main content */}
-      <main className="flex-1">
-        {/* TopBar */}
-        <TopBar />
-
-        {/* Content area */}
-        <div className="pt-16 pb-16 lg:pb-0 bg-amber-100">
-          <div className="p-4 sm:p-6 md:p-8">
-            <div className="grid grid-cols-1 lg:grid-cols-1 gap-8">
-              <div className="lg:col-span-2">
-                <Chat />
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <MobileNavigation />
-      </main>
+    <div className="flex flex-col min-h-screen">
+      <HeroSection />
+      <Banner />
+      <FeaturesSection />
+      <FAQSection />
+      <ContactSection />
     </div>
   );
-};
-
-export default Chatbot;
+}
