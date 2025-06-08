@@ -23,32 +23,33 @@ const ContactSection: React.FC = () => {
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
-    
-    try {
-      // Tạo mailto link với thông tin form
-      const subject = encodeURIComponent(`[Liên hệ] ${formData.subject}`);
-      const body = encodeURIComponent(`
-Họ tên: ${formData.name}
-Email: ${formData.email}
-Số điện thoại: ${formData.phone}
-Chủ đề: ${formData.subject}
+    setSubmitStatus('idle');
 
-Nội dung:
-${formData.message}
-      `);
-      
-      const mailtoLink = `mailto:phuclpst09495@gmail.com?subject=${subject}&body=${body}`;
-      window.location.href = mailtoLink;
-      
-      setSubmitStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: ''
+    try {
+      const response = await fetch('http://localhost:5000/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          subject: '',
+          message: ''
+        });
+      } else {
+        const errorData = await response.json();
+        console.error('Server error:', errorData.message);
+        setSubmitStatus('error');
+      }
     } catch (error) {
+      console.error('Network or client error:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -71,10 +72,10 @@ ${formData.message}
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-6">
-            Liên Hệ Với Chúng Tôi
+            Contact Us
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Hãy để lại thông tin của bạn, chúng tôi sẽ liên hệ lại trong thời gian sớm nhất
+            Please leave your information, and we will contact you as soon as possible.
           </p>
         </div>
 
@@ -84,7 +85,7 @@ ${formData.message}
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-semibold text-gray-700 block">
-                    Họ và Tên *
+                    Full Name *
                   </label>
                   <input
                     type="text"
@@ -94,7 +95,7 @@ ${formData.message}
                     value={formData.name}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none transition-all duration-300 bg-white/70 backdrop-blur-sm"
-                    placeholder="Nhập họ và tên của bạn"
+                    placeholder="Enter your full name"
                   />
                 </div>
                 
@@ -118,7 +119,7 @@ ${formData.message}
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label htmlFor="phone" className="text-sm font-semibold text-gray-700 block">
-                    Số Điện Thoại
+                    Phone Number
                   </label>
                   <input
                     type="tel"
@@ -133,7 +134,7 @@ ${formData.message}
 
                 <div className="space-y-2">
                   <label htmlFor="subject" className="text-sm font-semibold text-gray-700 block">
-                    Chủ Đề *
+                    Subject *
                   </label>
                   <select
                     id="subject"
@@ -143,19 +144,19 @@ ${formData.message}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none transition-all duration-300 bg-white/70 backdrop-blur-sm"
                   >
-                    <option value="">Chọn chủ đề</option>
-                    <option value="Tư vấn sản phẩm">Tư vấn sản phẩm</option>
-                    <option value="Hỗ trợ kỹ thuật">Hỗ trợ kỹ thuật</option>
-                    <option value="Khiếu nại">Khiếu nại</option>
-                    <option value="Hợp tác">Hợp tác</option>
-                    <option value="Khác">Khác</option>
+                    <option value="">Select a subject</option>
+                    <option value="Product Inquiry">Product Inquiry</option>
+                    <option value="Technical Support">Technical Support</option>
+                    <option value="Complaint">Complaint</option>
+                    <option value="Collaboration">Collaboration</option>
+                    <option value="Other">Other</option>
                   </select>
                 </div>
               </div>
 
               <div className="space-y-2">
                 <label htmlFor="message" className="text-sm font-semibold text-gray-700 block">
-                  Nội Dung *
+                  Message *
                 </label>
                 <textarea
                   id="message"
@@ -165,19 +166,19 @@ ${formData.message}
                   value={formData.message}
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none transition-all duration-300 bg-white/70 backdrop-blur-sm resize-none"
-                  placeholder="Nhập nội dung tin nhắn của bạn..."
+                  placeholder="Enter your message..."
                 />
               </div>
 
               {submitStatus === 'success' && (
                 <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-xl">
-                  Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất có thể.
+                  Thank you for contacting us! We will respond as soon as possible.
                 </div>
               )}
 
               {submitStatus === 'error' && (
                 <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-xl">
-                  Có lỗi xảy ra. Vui lòng thử lại sau.
+                  An error occurred. Please try again later.
                 </div>
               )}
 
@@ -194,10 +195,10 @@ ${formData.message}
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                       </svg>
-                      Đang gửi...
+                      Sending...
                     </span>
                   ) : (
-                    'Gửi Tin Nhắn'
+                    'Send Message'
                   )}
                 </button>
               </div>

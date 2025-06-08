@@ -65,7 +65,7 @@ const HeroSection: React.FC = () => {
               </svg>
             </Link>
             
-            <Link
+            {/* <Link
               href="/demo"
               className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-blue-700 bg-white border-2 border-blue-200 rounded-xl hover:bg-blue-50 hover:border-blue-300 transition-all duration-300"
             >
@@ -73,7 +73,7 @@ const HeroSection: React.FC = () => {
               <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h1m4 0h1m1-5.5a2.5 2.5 0 11-5 0v3a2.5 2.5 0 015 0z" />
               </svg>
-            </Link>
+            </Link> */}
           </div>
         </div>
 

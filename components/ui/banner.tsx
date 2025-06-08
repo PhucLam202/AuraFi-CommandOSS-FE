@@ -20,19 +20,19 @@ const Banner: React.FC = () => {
     },
     {
       id: 3,
-      src: "/images/sui.png",
+      src: "/images/my-logo-rm-bg.png",
       alt: "Sui Logo",
       title: "SUI"
     },
     {
       id: 4,
-      src: "/images/sui.png",
+      src: "/images/walrus.png",
       alt: "Sui Logo",
       title: "SUI"
     },
     {
       id: 5,
-      src: "/images/sui.png",
+      src: "/images/Kai.png",
       alt: "Sui Logo",
       title: "SUI"
     },
@@ -44,13 +44,13 @@ const Banner: React.FC = () => {
     },
     {
       id: 7,
-      src: "/images/sui.png",
+      src: "/images/my-logo-rm-bg.png",
       alt: "Sui Logo",
       title: "SUI"
     },
     {
       id: 8,
-      src: "/images/sui.png",
+      src: "/images/walrus.png",
       alt: "Sui Logo",
       title: "SUI"
     }
@@ -60,7 +60,7 @@ const Banner: React.FC = () => {
   const duplicatedImages = [...images, ...images]
 
   return (
-    <div className="w-full overflow-hidden bg-gray-100 py-4">
+    <div className="w-full overflow-hidden bg-transparent py-4">
       {/* Banner chạy liên tục */}
       <div className="relative">
         <div className="flex animate-scroll">
@@ -70,14 +70,13 @@ const Banner: React.FC = () => {
               className="flex-shrink-0 mx-2"
               style={{ width: '280px' }}
               >
-              <div className="relative bg-white rounded-lg shadow-md overflow-hidden h-40">
+              <div className="relative bg-transparent rounded-lg  overflow-hidden h-10 w-10">
                 <img
                   src={image.src}
                   alt={image.alt}
                   className="w-full h-full object-contain"
                 />
-                {/* Tạm thời comment hoặc xóa lớp phủ này để kiểm tra ảnh */}
-                {/* <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
+                {/* <div className="absolute inset-0 bg-transparent flex items-center justify-center">
                   <h3 className="text-white text-lg font-bold text-center px-2">
                     {image.title}
                   </h3>

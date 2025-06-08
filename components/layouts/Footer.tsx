@@ -11,6 +11,7 @@ import {
   Linkedin,
   Youtube,
   ArrowUp,
+  Github,
   Heart
 } from "lucide-react";
 
@@ -47,17 +48,16 @@ const Footer: React.FC = () => {
             <div className="space-y-6">
               <div>
                 <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-4">
-                  YourCompany
+                  SUI AI Assistant
                 </h3>
                 <p className="text-gray-300 leading-relaxed">
-                  Chúng tôi cam kết mang đến những sản phẩm và dịch vụ chất lượng cao, 
-                  đáp ứng mọi nhu cầu của khách hàng với sự tận tâm và chuyên nghiệp.
+                  We are committed to bringing high-quality products and services, meeting every customer's need with dedication and professionalism. 
                 </p>
               </div>
               
               {/* Social Media */}
-              <div>
-                <h4 className="text-lg font-semibold mb-4 text-cyan-300">Theo dõi chúng tôi</h4>
+              {/* <div>
+                <h4 className="text-lg font-semibold mb-4 text-cyan-300">Follow us</h4>
                 <div className="flex space-x-4">
                   {[
                     { icon: Facebook, href: "#", color: "hover:text-blue-400" },
@@ -76,20 +76,20 @@ const Footer: React.FC = () => {
                     </a>
                   ))}
                 </div>
-              </div>
+              </div> */}
             </div>
 
             {/* Quick Links */}
             <div className="space-y-6">
-              <h4 className="text-xl font-semibold text-cyan-300">Liên kết nhanh</h4>
+              <h4 className="text-xl font-semibold text-cyan-300">Quick Links</h4>
               <ul className="space-y-3">
                 {[
-                  "Trang chủ",
-                  "Sản phẩm",
-                  "Dịch vụ", 
-                  "Về chúng tôi",
-                  "Tin tức",
-                  "Liên hệ"
+                  "Home",
+                  "Products",
+                  "Services", 
+                  "About Us",
+                  "News",
+                  "Contact"
                 ].map((link, index) => (
                   <li key={index}>
                     <a 
@@ -105,15 +105,15 @@ const Footer: React.FC = () => {
 
             {/* Services */}
             <div className="space-y-6">
-              <h4 className="text-xl font-semibold text-cyan-300">Dịch vụ</h4>
+              <h4 className="text-xl font-semibold text-cyan-300">Services</h4>
               <ul className="space-y-3">
                 {[
-                  "Tư vấn chuyên nghiệp", 
-                  "Hỗ trợ kỹ thuật",
-                  "Bảo trì định kỳ",
-                  "Đào tạo nhân viên",
-                  "Thiết kế custom",
-                  "Hỗ trợ 24/7"
+                  "Professional Consulting", 
+                  "Technical Support",
+                  "Regular Maintenance",
+                  "Staff Training",
+                  "Custom Design",
+                  "24/7 Support"
                 ].map((service, index) => (
                   <li key={index}>
                     <a 
@@ -129,30 +129,17 @@ const Footer: React.FC = () => {
 
             {/* Contact Info */}
             <div className="space-y-6">
-              <h4 className="text-xl font-semibold text-cyan-300">Thông tin liên hệ</h4>
+              <h4 className="text-xl font-semibold text-cyan-300">Contact Information</h4>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3 group">
                   <div className="p-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg group-hover:scale-110 transition-transform duration-300">
-                    <MapPin size={16} />
+                    <Github size={16} />
                   </div>
                   <div>
                     <p className="text-gray-300 leading-relaxed">
-                      123 Đường ABC, Quận 1<br />
-                      TP. Hồ Chí Minh, Việt Nam
-                    </p>
+                     <a href="https://github.com/PhucLam202"> PhucLam </a>
+                      </p>
                   </div>
-                </div>
-
-                <div className="flex items-center space-x-3 group">
-                  <div className="p-2 bg-gradient-to-r from-green-500 to-teal-500 rounded-lg group-hover:scale-110 transition-transform duration-300">
-                    <Phone size={16} />
-                  </div>
-                  <a 
-                    href="tel:+84123456789" 
-                    className="text-gray-300 hover:text-cyan-400 transition-colors duration-300"
-                  >
-                    +84 123 456 789
-                  </a>
                 </div>
 
                 <div className="flex items-center space-x-3 group">
@@ -170,14 +157,14 @@ const Footer: React.FC = () => {
 
               {/* Newsletter */}
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <h5 className="text-lg font-semibold mb-3 text-cyan-300">Đăng ký nhận tin</h5>
+                <h5 className="text-lg font-semibold mb-3 text-cyan-300">Subscribe to our newsletter</h5>
                 <p className="text-gray-300 text-sm mb-4">
-                  Nhận thông tin mới nhất về sản phẩm và ưu đãi đặc biệt
+                  Get the latest information about our products and special offers
                 </p>
                 <div className="flex space-x-2">
                   <input
                     type="email"
-                    placeholder="Email của bạn"
+                    placeholder="Your Email"
                     className="flex-1 px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:border-cyan-400 transition-colors duration-300"
                   />
                   <button className="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 hover:scale-105">
@@ -194,7 +181,7 @@ const Footer: React.FC = () => {
           <div className="container mx-auto px-6 py-6">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="flex items-center space-x-2 text-gray-300">
-                <span>&copy; {currentYear} YourCompany. Bản quyền thuộc về chúng tôi.</span>
+                <span>&copy; {currentYear} YourCompany. All rights reserved.</span>
                 <span className="hidden md:inline">|</span>
                 <span className="flex items-center space-x-1">
                   <span>Made with</span>
@@ -205,10 +192,10 @@ const Footer: React.FC = () => {
 
               <div className="flex items-center space-x-6">
                 <a href="#" className="text-gray-300 hover:text-cyan-400 transition-colors duration-300 text-sm">
-                  Điều khoản sử dụng
+                  Terms of Use
                 </a>
                 <a href="#" className="text-gray-300 hover:text-cyan-400 transition-colors duration-300 text-sm">
-                  Chính sách bảo mật
+                  Privacy Policy
                 </a>
                 <button
                   onClick={scrollToTop}
