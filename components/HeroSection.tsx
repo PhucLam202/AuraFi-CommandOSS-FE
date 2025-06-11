@@ -21,7 +21,7 @@ const HeroSection: React.FC = () => {
         {/* Left Content - Enhanced */}
         <div className="flex-1 md:w-1/2 text-center md:text-left mb-12 md:mb-0 md:pr-8">
           
-          {/* Badge */}
+          {/* Badge */} 
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 text-blue-800 text-sm font-medium mb-6">
             🚀 Powered by Advanced AI
           </div>
