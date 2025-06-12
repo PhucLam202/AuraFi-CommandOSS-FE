@@ -70,7 +70,7 @@ const LoginPage = () => {
           data.message ||
             "Login failed. Please check your email and password."
         );
-        console.error("Lỗi đăng nhập:", data);
+        console.error("Login error:", data);
       }
     } catch (err) {
       setError("An error occurred while logging in.");
@@ -139,9 +139,9 @@ const LoginPage = () => {
               <Sparkles className="w-8 h-8 text-white" />
             </div>
             <h1 className="text-3xl font-bold text-gray-800 mb-2">
-              Chào mừng trở lại!
+              Welcome Back!
             </h1>
-            <p className="text-gray-600">Đăng nhập vào AuraFi AI để tiếp tục</p>
+            <p className="text-gray-600">Log in to AuraFi AI to continue</p>
           </div>
 
           {/* Login Form */}
@@ -159,7 +159,7 @@ const LoginPage = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                   className="w-full pl-12 pr-4 py-4 bg-white/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-3 focus:ring-amber-500/30 focus:border-amber-500 transition-all duration-300 text-gray-800 placeholder-gray-500"
-                  placeholder="Nhập email của bạn"
+                  placeholder="Enter your email"
                   required
                 />
               </div>
@@ -168,7 +168,7 @@ const LoginPage = () => {
             {/* Password Input */}
             <div className="space-y-2">
               <label className="block text-sm font-semibold text-gray-700">
-                Mật khẩu
+                Password
               </label>
               <div className="relative">
                 <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -178,7 +178,7 @@ const LoginPage = () => {
                   value={formData.password}
                   onChange={handleInputChange}
                   className="w-full pl-12 pr-12 py-4 bg-white/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-3 focus:ring-amber-500/30 focus:border-amber-500 transition-all duration-300 text-gray-800 placeholder-gray-500"
-                  placeholder="Nhập mật khẩu"
+                  placeholder="Enter your password"
                   required
                 />
                 <button
@@ -205,10 +205,10 @@ const LoginPage = () => {
                   onChange={handleInputChange}
                   className="w-4 h-4 text-amber-500 border-gray-300 rounded focus:ring-amber-500 focus:ring-2"
                 />
-                <span className="text-sm text-gray-600">Ghi nhớ đăng nhập</span>
+                <span className="text-sm text-gray-600">Remember me</span>
               </label> */}
               <button className="text-sm text-blue-600 hover:text-blue-700 font-semibold transition-colors">
-                Quên mật khẩu?
+                Forgot password?
               </button>
             </div>
 
@@ -223,10 +223,10 @@ const LoginPage = () => {
                   onClick={handleLogin}
                   className="w-full bg-gradient-to-r from-blue-500 to-amber-500 text-white py-3 rounded-xl font-semibold hover:from-blue-600 hover:to-amber-600 focus:outline-none focus:ring-3 focus:ring-blue-500/30 transition-all duration-300"
                 >
-                  Đăng nhập
+                  Log in
                 </button>
                 
-                {/* Hiển thị nút Connect Wallet khi có lỗi wallet */}
+                {/* Display Connect Wallet button when there's a wallet error */}
                 {error === "400" && (
                   <div className="text-center">
                     <p className="text-sm text-gray-600 mb-2">This account is registered with a wallet. Please login with your Sui wallet.</p>
@@ -244,7 +244,7 @@ const LoginPage = () => {
             </div>
             <div className="relative flex justify-center text-sm">
               <span className="px-4 bg-white/80 text-gray-500">
-                Hoặc đăng nhập với
+                Or log in with
               </span>
             </div>
           </div>
@@ -262,12 +262,12 @@ const LoginPage = () => {
           {/* Sign Up Link */}
           <div className="mt-8 text-center">
             <p className="text-gray-600">
-              Chưa có tài khoản?{" "}
+              Don't have an account?{" "}
               <button
                 className="text-blue-600 hover:text-blue-700 font-semibold transition-colors hover:underline"
                 onClick={() => router.push("/register")}
               >
-                Đăng ký ngay
+                Sign up now
               </button>
             </p>
           </div>
@@ -276,7 +276,7 @@ const LoginPage = () => {
         {/* Footer */}
         <div className="text-center mt-6">
           <p className="text-sm text-gray-500">
-            © 2025 AuraFi AI. Tất cả quyền được bảo lưu.
+            © 2025 AuraFi AI. All rights reserved.
           </p>
         </div>
       </div>

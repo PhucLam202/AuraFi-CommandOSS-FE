@@ -86,9 +86,9 @@ const RegisterPage = () => {
   };
 
   const getPasswordStrengthText = () => {
-    if (passwordStrength <= 2) return 'Yếu';
-    if (passwordStrength <= 3) return 'Trung bình';
-    return 'Mạnh';
+    if (passwordStrength <= 2) return 'Weak';
+    if (passwordStrength <= 3) return 'Medium';
+    return 'Strong';
   };
 
   return (
@@ -108,8 +108,8 @@ const RegisterPage = () => {
             <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-amber-500 rounded-2xl mb-4 shadow-lg">
               <Sparkles className="w-8 h-8 text-white" />
             </div>
-            <h1 className="text-3xl font-bold text-gray-800 mb-2">Tạo tài khoản mới</h1>
-            <p className="text-gray-600">Tham gia AuraFi AI ngay hôm nay</p>
+            <h1 className="text-3xl font-bold text-gray-800 mb-2">Create New Account</h1>
+            <p className="text-gray-600">Join AuraFi AI today</p>
           </div>
 
             {/* Register Form */}
@@ -131,7 +131,7 @@ const RegisterPage = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                   className="w-full pl-12 pr-4 py-4 bg-white/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-3 focus:ring-blue-500/30 focus:border-blue-500 transition-all duration-300 text-gray-800 placeholder-gray-500"
-                  placeholder="Nhập email của bạn"
+                  placeholder="Enter your email"
                   required
                 />
               </div>
@@ -140,7 +140,7 @@ const RegisterPage = () => {
             {/* Password Input */}
             <div className="space-y-2">
               <label className="block text-sm font-semibold text-gray-700">
-                Mật khẩu
+                Password
               </label>
               <div className="relative">
                 <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -150,7 +150,7 @@ const RegisterPage = () => {
                   value={formData.password}
                   onChange={handleInputChange}
                   className="w-full pl-12 pr-12 py-4 bg-white/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-3 focus:ring-blue-500/30 focus:border-blue-500 transition-all duration-300 text-gray-800 placeholder-gray-500"
-                  placeholder="Tạo mật khẩu mạnh"
+                  placeholder="Create a strong password"
                   required
                 />
                 <button
@@ -182,7 +182,7 @@ const RegisterPage = () => {
             {/* Confirm Password Input */}
             <div className="space-y-2">
               <label className="block text-sm font-semibold text-gray-700">
-                Xác nhận mật khẩu
+                Confirm Password
               </label>
               <div className="relative">
                 <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -192,7 +192,7 @@ const RegisterPage = () => {
                   value={formData.confirmPassword}
                   onChange={handleInputChange}
                   className="w-full pl-12 pr-12 py-4 bg-white/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-3 focus:ring-blue-500/30 focus:border-blue-500 transition-all duration-300 text-gray-800 placeholder-gray-500"
-                  placeholder="Nhập lại mật khẩu"
+                  placeholder="Re-enter password"
                   required
                 />
                 <button
@@ -204,17 +204,13 @@ const RegisterPage = () => {
                 </button>
               </div>
               {/* Password Match Indicator */}
-              {formData.confirmPassword && (
-                <div className="flex items-center space-x-2">
-                  {formData.password === formData.confirmPassword ? (
-                    <div className="flex items-center space-x-1 text-green-600">
-                      <Check className="w-4 h-4" />
-                      <span className="text-sm">Mật khẩu khớp</span>
-                    </div>
-                  ) : (
-                    <span className="text-sm text-red-500">Mật khẩu không khớp</span>
-                  )}
+              {formData.password === formData.confirmPassword ? (
+                <div className="flex items-center space-x-1 text-green-600">
+                  <Check className="w-4 h-4" />
+                  <span className="text-sm">Passwords match</span>
                 </div>
+              ) : (
+                <span className="text-sm text-red-500">Passwords do not match</span>
               )}
             </div>
 
@@ -228,13 +224,13 @@ const RegisterPage = () => {
                 className="mt-1 w-4 h-4 text-blue-500 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
               />
               <label className="text-sm text-gray-600 leading-5">
-                Tôi đồng ý với{' '}
+                I agree to the{' '}
                 <button className="text-blue-600 hover:text-blue-700 font-semibold transition-colors hover:underline">
-                  Điều khoản sử dụng
+                  Terms of Service
                 </button>
-                {' '}và{' '}
+                {' '}and{' '}
                 <button className="text-blue-600 hover:text-blue-700 font-semibold transition-colors hover:underline">
-                  Chính sách bảo mật
+                  Privacy Policy
                 </button>
               </label>
             </div>
@@ -246,7 +242,7 @@ const RegisterPage = () => {
               className="group w-full bg-gradient-to-r from-blue-500 to-amber-500 text-white py-4 rounded-xl font-semibold text-lg hover:from-blue-600 hover:to-amber-600 focus:outline-none focus:ring-3 focus:ring-blue-500/30 transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
             >
               <span className="flex items-center justify-center space-x-2">
-                <span>Tạo tài khoản</span>
+                <span>Create Account</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </span>
             </button>
@@ -258,7 +254,7 @@ const RegisterPage = () => {
               <div className="w-full border-t border-gray-200"></div>
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-4 bg-white/80 text-gray-500">Hoặc đăng ký với</span>
+              <span className="px-4 bg-white/80 text-gray-500">Or register with</span>
             </div>
           </div>
 
@@ -273,9 +269,9 @@ const RegisterPage = () => {
           {/* Login Link */}
           <div className="mt-8 text-center">
             <p className="text-gray-600">
-              Đã có tài khoản?{' '}
+              Already have an account?{' '}
               <button className="text-blue-600 hover:text-blue-700 font-semibold transition-colors hover:underline">
-                Đăng nhập ngay
+                Login now
               </button>
             </p>
           </div>
@@ -284,7 +280,7 @@ const RegisterPage = () => {
         {/* Footer */}
         <div className="text-center mt-6">
           <p className="text-sm text-gray-500">
-            © 2025 AuraFi AI. Tất cả quyền được bảo lưu.
+            © 2025 AuraFi AI. All rights reserved.
           </p>
         </div>
       </div>

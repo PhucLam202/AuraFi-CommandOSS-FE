@@ -20,7 +20,7 @@ export const ChatRoomItem: React.FC<{
   
     const handleEdit = () => {
       if (editName.trim() && editName !== room.title) {
-        onEdit(room.id, editName.trim());
+        onEdit(room._id, editName.trim());
       }
       setIsEditing(false);
     };
@@ -91,7 +91,7 @@ export const ChatRoomItem: React.FC<{
               Đổi tên
             </DropdownMenuItem>
             <DropdownMenuItem 
-              onClick={() => onDelete(room.id)}
+              onClick={() => onDelete(room._id)}
               className="text-destructive"
             >
               <Trash2 className="h-4 w-4 mr-2" />
