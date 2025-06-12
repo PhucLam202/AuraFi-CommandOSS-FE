@@ -109,7 +109,7 @@ const UserProfileModal = ({ isOpen, onClose }: UserProfileModalProps) => {
         {/* Modal Header */}
         <div className="sticky top-0 bg-white/90 backdrop-blur-sm border-b border-gray-200 p-6 rounded-t-2xl">
           <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-bold text-gray-800">Thông tin người dùng</h2>
+            <h2 className="text-2xl font-bold text-gray-800">User Information</h2>
             <button
               onClick={onClose}
               className="w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors"
@@ -124,7 +124,7 @@ const UserProfileModal = ({ isOpen, onClose }: UserProfileModalProps) => {
           {loading && (
             <div className="flex items-center justify-center py-12">
               <Loader2 className="w-8 h-8 animate-spin text-purple-600" />
-              <span className="ml-2 text-gray-600">Đang tải thông tin...</span>
+              <span className="ml-2 text-gray-600">Loading information...</span>
             </div>
           )}
 
@@ -132,13 +132,13 @@ const UserProfileModal = ({ isOpen, onClose }: UserProfileModalProps) => {
             <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
               <div className="flex items-center">
                 <XCircle className="w-5 h-5 text-red-500 mr-2" />
-                <span className="text-red-700">Lỗi: {error}</span>
+                <span className="text-red-700">Error: {error}</span>
               </div>
               <button
                 onClick={fetchUserData}
                 className="mt-2 text-sm text-red-600 hover:text-red-800 underline"
               >
-                Thử lại
+                Try again
               </button>
             </div>
           )}
@@ -149,7 +149,7 @@ const UserProfileModal = ({ isOpen, onClose }: UserProfileModalProps) => {
               <div className="bg-white/60 backdrop-blur-sm rounded-xl p-6 shadow-sm">
                 <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
                   <User className="w-5 h-5 mr-2 text-purple-600" />
-                  Thông tin cơ bản
+                  Basic Information
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
@@ -159,7 +159,7 @@ const UserProfileModal = ({ isOpen, onClose }: UserProfileModalProps) => {
                     </p>
                   </div>
                   <div>
-                    <label className="text-sm font-medium text-gray-600">Tên</label>
+                    <label className="text-sm font-medium text-gray-600">Name</label>
                     <p className="text-sm text-gray-800 bg-gray-50 p-3 rounded-lg">
                       {userData.name || 'N/A'}
                     </p>
@@ -178,24 +178,24 @@ const UserProfileModal = ({ isOpen, onClose }: UserProfileModalProps) => {
               <div className="bg-white/60 backdrop-blur-sm rounded-xl p-6 shadow-sm">
                 <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
                   <Wallet className="w-5 h-5 mr-2 text-blue-600" />
-                  Thông tin ví
+                  Wallet Information
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="text-sm font-medium text-gray-600">Loại xác thực</label>
+                    <label className="text-sm font-medium text-gray-600">Authentication Type</label>
                     <p className="text-sm text-gray-800 bg-gray-50 p-3 rounded-lg capitalize">
                       {userData.authType || 'N/A'}
                     </p>
                   </div>
                   <div>
-                    <label className="text-sm font-medium text-gray-600">Địa chỉ rút gọn</label>
+                    <label className="text-sm font-medium text-gray-600">Shortened Address</label>
                     <p className="text-sm text-gray-800 bg-gray-50 p-3 rounded-lg font-mono">
                       {userData.suiAddress ? formatAddress(userData.suiAddress) : 'N/A'}
                     </p>
                   </div>
                   {userData.suiAddress && (
                     <div className="md:col-span-2">
-                      <label className="text-sm font-medium text-gray-600">Địa chỉ SUI đầy đủ</label>
+                      <label className="text-sm font-medium text-gray-600">Full SUI Address</label>
                       <p className="text-sm text-gray-800 bg-gray-50 p-3 rounded-lg font-mono break-all">
                         {userData.suiAddress}
                       </p>
@@ -208,11 +208,11 @@ const UserProfileModal = ({ isOpen, onClose }: UserProfileModalProps) => {
               <div className="bg-white/60 backdrop-blur-sm rounded-xl p-6 shadow-sm">
                 <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
                   <Shield className="w-5 h-5 mr-2 text-green-600" />
-                  Trạng thái tài khoản
+                  Account Status
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div>
-                    <label className="text-sm font-medium text-gray-600">Trạng thái hoạt động</label>
+                    <label className="text-sm font-medium text-gray-600">Active Status</label>
                     <div className={`flex items-center p-3 rounded-lg ${
                       userData.isActive ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'
                     }`}>
@@ -222,12 +222,12 @@ const UserProfileModal = ({ isOpen, onClose }: UserProfileModalProps) => {
                         <XCircle className="w-4 h-4 mr-2" />
                       )}
                       <span className="text-sm font-medium">
-                        {userData.isActive ? 'Hoạt động' : 'Không hoạt động'}
+                        {userData.isActive ? 'Active' : 'Inactive'}
                       </span>
                     </div>
                   </div>
                   <div>
-                    <label className="text-sm font-medium text-gray-600">Trạng thái xóa</label>
+                    <label className="text-sm font-medium text-gray-600">Delete Status</label>
                     <div className={`flex items-center p-3 rounded-lg ${
                       !userData.isDeleted ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'
                     }`}>
@@ -237,12 +237,12 @@ const UserProfileModal = ({ isOpen, onClose }: UserProfileModalProps) => {
                         <XCircle className="w-4 h-4 mr-2" />
                       )}
                       <span className="text-sm font-medium">
-                        {userData.isDeleted ? 'Đã xóa' : 'Chưa xóa'}
+                        {userData.isDeleted ? 'Deleted' : 'Not Deleted'}
                       </span>
                     </div>
                   </div>
                   <div>
-                    <label className="text-sm font-medium text-gray-600">Phiên bản</label>
+                    <label className="text-sm font-medium text-gray-600">Version</label>
                     <p className="text-sm text-gray-800 bg-gray-50 p-3 rounded-lg">
                       {userData.__v !== undefined ? userData.__v : 'N/A'}
                     </p>
@@ -256,7 +256,7 @@ const UserProfileModal = ({ isOpen, onClose }: UserProfileModalProps) => {
                   <div className="bg-white/60 backdrop-blur-sm rounded-xl p-6 shadow-sm">
                     <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
                       <CreditCard className="w-5 h-5 mr-2 text-purple-600" />
-                      Gói thanh toán
+                      Payment Plan
                     </h3>
                     <div className="space-y-3">
                       {typeof userData.paymentPlan === 'object' ? (
@@ -281,7 +281,7 @@ const UserProfileModal = ({ isOpen, onClose }: UserProfileModalProps) => {
                   <div className="bg-white/60 backdrop-blur-sm rounded-xl p-6 shadow-sm">
                     <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
                       <Shield className="w-5 h-5 mr-2 text-indigo-600" />
-                      Thông tin vai trò
+                      Role Information
                     </h3>
                     <div className="space-y-3">
                       {typeof userData.role === 'object' ? (
@@ -317,17 +317,17 @@ const UserProfileModal = ({ isOpen, onClose }: UserProfileModalProps) => {
               <div className="bg-white/60 backdrop-blur-sm rounded-xl p-6 shadow-sm">
                 <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
                   <Calendar className="w-5 h-5 mr-2 text-orange-600" />
-                  Thời gian
+                  Timestamps
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="text-sm font-medium text-gray-600">Ngày tạo</label>
+                    <label className="text-sm font-medium text-gray-600">Created Date</label>
                     <p className="text-sm text-gray-800 bg-gray-50 p-3 rounded-lg">
                       {formatDate(userData.createdAt)}
                     </p>
                   </div>
                   <div>
-                    <label className="text-sm font-medium text-gray-600">Ngày cập nhật</label>
+                    <label className="text-sm font-medium text-gray-600">Updated Date</label>
                     <p className="text-sm text-gray-800 bg-gray-50 p-3 rounded-lg">
                       {formatDate(userData.updatedAt)}
                     </p>
@@ -337,18 +337,18 @@ const UserProfileModal = ({ isOpen, onClose }: UserProfileModalProps) => {
 
               {/* Arrays Info */}
               <div className="bg-white/60 backdrop-blur-sm rounded-xl p-6 shadow-sm">
-                <h3 className="text-lg font-semibold text-gray-800 mb-4">Thông tin bổ sung</h3>
+                <h3 className="text-lg font-semibold text-gray-800 mb-4">Additional Information</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="text-sm font-medium text-gray-600">Refresh Tokens</label>
                     <p className="text-sm text-gray-800 bg-gray-50 p-3 rounded-lg">
-                      {userData.refreshTokens?.length === 0 ? 'Không có' : `${userData.refreshTokens?.length || 0} tokens`}
+                      {userData.refreshTokens?.length === 0 ? 'None' : `${userData.refreshTokens?.length || 0} tokens`}
                     </p>
                   </div>
                   <div>
-                    <label className="text-sm font-medium text-gray-600">Phòng</label>
+                    <label className="text-sm font-medium text-gray-600">Rooms</label>
                     <p className="text-sm text-gray-800 bg-gray-50 p-3 rounded-lg">
-                      {userData.rooms?.length === 0 ? 'Không có' : `${userData.rooms?.length || 0} phòng`}
+                      {userData.rooms?.length === 0 ? 'None' : `${userData.rooms?.length || 0} rooms`}
                     </p>
                   </div>
                 </div>
@@ -364,7 +364,7 @@ const UserProfileModal = ({ isOpen, onClose }: UserProfileModalProps) => {
               onClick={onClose}
               className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg transition-all duration-300"
             >
-              Đóng
+              Close
             </button>
           </div>
         </div>

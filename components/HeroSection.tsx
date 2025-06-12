@@ -56,8 +56,8 @@ const HeroSection: React.FC = () => {
           {/* Dual CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <Link
-              href="/chatbot"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              href="/login"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-blue-500 to-amber-500 text-white rounded-xl hover:from-blue-700 hover:bg-gradient-to-r from-blue-500 to-amber-600 text-white transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 cursor-pointer"
             >
               Try Free Now
               <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
